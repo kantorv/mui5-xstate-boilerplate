@@ -68,17 +68,17 @@ const mainMachine = createMachine<
             {
                 target:"home",
                 cond:(_,e)=>e.name === 'home',
-                actions:(_,e)=>e.callback()
+                actions:(_,e)=>e.callback() //navigate
             },
             {
                 target:"widgeta",
                 cond:(_,e)=>e.name === 'widgeta',
-                actions:(_,e)=>e.callback()
+                actions:(_,e)=>e.callback() //navigate
             },
             {
                 target:"widgetb",
                 cond:(_,e)=>e.name === 'widgetb',
-                actions:(_,e)=>e.callback()
+                actions:(_,e)=>e.callback() //navigate
             }
         ]
     },
