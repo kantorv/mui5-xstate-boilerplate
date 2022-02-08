@@ -46,9 +46,7 @@ const SidebarWrapper = ()=>{
 
     
 
-  useEffect(()=>{
-      console.log("SidebarWrapper init", current.children)
-  },[])
+ 
 
     return (
     <Box  
