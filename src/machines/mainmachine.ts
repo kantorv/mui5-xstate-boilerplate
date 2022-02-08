@@ -5,7 +5,11 @@ import { fromEvent, EMPTY } from 'rxjs';
 import {  throttleTime, map  } from 'rxjs/operators';
 //import { sidebarMachine } from './sidebarmachine'
 
-
+import {
+    homeMachine,
+    widgetAMachine,
+    widgetBMachine
+} from '../widgets'
 
 
 
@@ -80,6 +84,10 @@ const mainMachine = createMachine<
     },
     states:{
         home:{
+            invoke:{
+                id:"home",
+                src:"home"
+            },
             entry:(_,e)=> console.log("mainmachine.home entry", e, _),
             exit:(_,e)=> console.log("mainmachine.home exit", e, _),
             on:{
@@ -91,7 +99,10 @@ const mainMachine = createMachine<
         widgeta:{
           entry:(_,e)=> console.log("mainmachine.widgeta entry", e),
           exit:(_,e)=> console.log("mainmachine.widgeta exit", e),
-        
+          invoke:{
+            id:"widgeta",
+            src:"widgeta"
+          },
           on:{
            
       
@@ -102,7 +113,10 @@ const mainMachine = createMachine<
         widgetb:{
             entry:(_,e)=> console.log("mainmachine.widgeta entry", e),
             exit:(_,e)=> console.log("mainmachine.widgeta exit", e),
-          
+            invoke:{
+                id:"widgetb",
+                src:"widgetb"
+            },
             on:{
              
         
@@ -119,10 +133,12 @@ const mainMachine = createMachine<
 
     },
     services:{
-      //sidebarMachine:sidebarMachine
+        home:homeMachine,
+        widgeta:widgetAMachine,
+        widgetb:widgetBMachine,
     }
 
-
+  
  
 
 });
